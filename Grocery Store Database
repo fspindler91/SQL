@@ -1,0 +1,10 @@
+CREATE TABLE store_items (id INTEGER PRIMARY KEY,name TEXT,quantity INTEGER,days_onshelf INTEGER,color TEXT);
+
+INSERT INTO store_items VALUES(1,"shirt",5,20,"blue");
+INSERT INTO store_items VALUES(2,"pants",10,13,"red");
+INSERT INTO store_items VALUES(3,"shoes",6,25,"orange");
+
+--display the database ordered by quantity.
+SELECT * FROM store_items
+ORDER BY quantity;
+
