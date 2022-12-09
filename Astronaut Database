@@ -1,0 +1,24 @@
+SELECT * FROM astronauts;
+
+/*What astronauts went to US Air Force Academy or US Military Academy? */
+
+SELECT name, status FROM astronauts WHERE Alma_Mater = "US Air Force Academy" OR "US Military Academy";
+
+
+/*What is the min, max and average of Space Flights?*/
+SELECT
+ max(Space_Flights) as MaxValue, avg(Space_Flights) as AvgValue, min(Space_Flights) as MinValue
+from 
+ astronauts
+group by
+ Space_Flights;
+
+/*Which astronauts have had 1 or less Space Flights? Which of those have 1 space flight?*/
+SELECT name,Space_Flights FROM astronauts WHERE Space_Flights <= 1 ORDER BY Space_Flights;
+
+SELECT name,Space_Flights FROM astronauts WHERE Space_Flights >= 1
+    GROUP BY name
+    HAVING Space_Flights = 1;
+
+/*Which Astronauts are active and are male?*/
+SELECT name, Status, Gender FROM astronauts WHERE status = 'active' AND gender = 'Male';
