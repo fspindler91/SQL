@@ -1,0 +1,49 @@
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT);
+    
+INSERT INTO singers (fullname) VALUES ("Matt Healy");
+INSERT INTO singers (fullname) VALUES ("Amy Winehouse");
+INSERT INTO singers (fullname) VALUES ("Britney Spears");
+INSERT INTO singers (fullname) VALUES ("katy Perry");
+INSERT INTO singers (fullname) VALUES ("Lizzo");
+
+
+
+
+CREATE TABLE hometowns (
+    person_id INTEGER ,
+    hometown TEXT);
+    
+INSERT INTO hometowns (person_id, hometown) VALUES (1, "London");
+INSERT INTO hometowns (person_id, hometown) VALUES (2, "London");
+INSERT INTO hometowns (person_id, hometown) VALUES (3, "Mississippi");
+INSERT INTO hometowns (person_id, hometown) VALUES (4, "California");
+INSERT INTO hometowns (person_id, hometown) VALUES (5, "Michigan");
+
+
+
+CREATE TABLE songs (
+    person_id INTEGER ,
+    song_title TEXT);
+    
+INSERT INTO songs (person_id, song_title) VALUES (1, "Somebody Else");
+INSERT INTO songs (person_id, song_title) VALUES (2, "Back to Black");
+INSERT INTO songs (person_id, song_title) VALUES (3, "Baby One More Time");
+INSERT INTO songs (person_id, song_title) VALUES (4, "Dark Horse");
+INSERT INTO songs (person_id, song_title) VALUES (5, "Rumors");
+
+
+
+
+
+SELECT singers.fullname, hometowns.hometown FROM hometowns
+    JOIN singers
+    ON singers.id = hometowns.person_id;
+    
+    
+SELECT singers.fullname, hometowns.hometown, song_title FROM singers
+    JOIN hometowns
+    ON singers.id = hometowns.person_id
+    JOIN songs
+    ON singers.id = songs.person_id;
